@@ -11,14 +11,7 @@ function addBall() {
   let x = Math.random() * 10 - 5;
   let y = Math.random() * 50 + 2;
   let z = Math.random() * -10;
-  container.innerHTML += (
-    <a-sphere
-      click-drag
-      dynamic-body
-      position="${x} ${y} ${z}"
-      radius="0.5"
-      color="${colors[Math.floor(Math.random() * colors.length)]}"
-      mass="0.5"
-    ></a-sphere>
-  );
+  container.innerHTML += `<a-sphere click-drag dynamic-body position="${x} ${y} ${z}" radius="0.5" color="${
+    colors[Math.floor(Math.random() * colors.length)]
+  }" mass="0.5"></a-sphere>`;
 }
