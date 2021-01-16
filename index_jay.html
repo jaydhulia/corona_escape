@@ -44,11 +44,13 @@
           var backendDataParsed = JSON.parse(backendData);
           var sceneEl = document.querySelector('a-scene');
           var entityEl = document.createElement('a-entity');
-          entityEl.setAttribute('gltf-model', backendDataParsed.src);
+          entityEl.setAttribute('gltf-model', "#chair-gltf");
           // entityEl.className = "static-body"
           entityEl.setAttribute('static-body', '');
-          // entityEl.setAttribute('velocity','');
-          entityEl.setAttribute(backendDataParsed.objType, 'jsonData', JSON.stringify(backendDataParsed.jsonData));
+          entityEl.setAttribute('scale', {"x": 0.00045, "y": 0.00045, "z": 0.00045});
+
+          var data = backendDataParsed.jsonData;
+          entityEl.setAttribute('position', {"x": data.x, "y": data.y, "z": data.z});
 
           sceneEl.appendChild(entityEl);
         }
