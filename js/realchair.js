@@ -12,22 +12,11 @@ AFRAME.registerComponent('realchair', {
     init: function () {
         var data = this.data.jsonData;
         var el = this.el;
+        el.setAttribute('static-body', 'shape: auto');
 
-        // // Create geometry.
-        // this.geometry = new THREE.BoxBufferGeometry(data.width, data.height, data.depth);
+        el.setAttribute('scale', {"x": data.scaleX, "y": data.scaleY, "z": data.scaleZ});
+        el.setAttribute('position', {"x": data.x, "y": data.y, "z": data.z});
 
-        // // Create material.
-        // this.material = new THREE.MeshStandardMaterial({color: data.color});
-        
-        // // Create mesh.
-        // this.mesh = new THREE.Mesh(this.geometry, this.material);
-        
-        el.object3D.position.set(data.x, data.y, data.z)
-        el.object3D.scale.set(0.00045, 0.00045, 0.00045);
-        // el.setAttribute('static-body', 'shape: auto');
-        // Set mesh on entity.
-        // el.setObject3D('mesh', this.mesh);
-        
     }
 });
 

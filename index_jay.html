@@ -32,10 +32,11 @@
         //   '{"objType": "chair", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "green", "x": "-2", "y": "0", "z": "0"}}'
         // ];
         
+
         var jsonDataArr = [
-          '{"objType": "realchair", "src": "./models/armchair.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "orange", "x": "2", "y": "0", "z": "-3"}}',
-          '{"objType": "realchair", "src": "./models/armchair.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "blue", "x": "0", "y": "0", "z": "-3"}}',
-          '{"objType": "realchair", "src": "./models/armchair.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "green", "x": "-2", "y": "0", "z": "-3"}}'
+          '{"objType": "realchair", "src": "./models/armchair.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "orange", "x": "2", "y": "0", "z": "-3", "scaleX": "0.00045", "scaleY": "0.00045", "scaleZ": "0.00045"}}',
+          '{"objType": "realchair", "src": "./models/armchair.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "blue", "x": "0", "y": "0", "z": "-3", "scaleX": "0.00045", "scaleY": "0.00045", "scaleZ": "0.00045"}}',
+          '{"objType": "realchair", "src": "./models/armchair.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "green", "x": "-2", "y": "0", "z": "-3", "scaleX": "0.00045", "scaleY": "0.00045", "scaleZ": "0.00045"}}'
         ];
 
         jsonDataArr.forEach(objCreate);
@@ -44,12 +45,11 @@
           var backendDataParsed = JSON.parse(backendData);
           var sceneEl = document.querySelector('a-scene');
           var entityEl = document.createElement('a-entity');
-          entityEl.setAttribute('gltf-model', backendDataParsed.src);
-          // entityEl.className = "static-body"
-          entityEl.setAttribute('static-body', '');
-          // entityEl.setAttribute('velocity','');
-          entityEl.setAttribute(backendDataParsed.objType, 'jsonData', JSON.stringify(backendDataParsed.jsonData));
 
+          entityEl.setAttribute('gltf-model', backendDataParsed.src);
+          
+          entityEl.setAttribute(backendDataParsed.objType, 'jsonData', JSON.stringify(backendDataParsed.jsonData));
+          
           sceneEl.appendChild(entityEl);
         }
       </script>
