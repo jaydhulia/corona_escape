@@ -18,7 +18,10 @@
         
         <a-entity gltf-model="#house-gltf" modify-materials></a-entity>
         <a-entity static-body gltf-model="#chair-gltf" scale="0.00045 0.00045 0.00045" position="2 0 0" modify-materials></a-entity>
-        <a-box static-body="shape: auto" position="0 0.5 -5" width="3" height="5" depth="1"></a-box>
+        <a-box static-body="shape: auto" position="0 0.5 -5" width="10" height="5" depth="1"></a-box>
+        <a-box static-body="shape: auto" position="0 0.5 4.5" width="10" height="5" depth="1"></a-box>
+        <a-box static-body="shape: auto" position="-5.1 0.5 0" rotation="0 90 0" width="10" height="5" depth="1"></a-box>
+        <a-box static-body="shape: auto" position="4.5 0.5 0" rotation="0 90 0" width="10" height="5" depth="1"></a-box>
         <a-entity id="camera" position="0 1.6 0">
           <a-entity id="camera" camera look-controls wasd-controls kinematic-body></a-entity>
         </a-entity>
