@@ -11,11 +11,13 @@
         <a-assets>
           <!-- <a-asset-item id="cityModel" src="https://cdn.aframe.io/test-models/models/glTF-2.0/virtualcity/VC.gltf"></a-asset-item> -->
           <!-- TODO: look into changing .obj files to .gltf as .gltf is recommended -->
-          <a-asset-item id="house-obj" src="./apartment-living-room-obj/apartment-living-room.obj"></a-asset-item>
-          <a-asset-item id="house-mtl" src="./apartment-living-room-obj/apartment-living-room.mtl"></a-asset-item>
+          <!-- <a-asset-item id="house-obj" src="./apartment-living-room-obj/apartment-living-room.obj"></a-asset-item>
+          <a-asset-item id="house-mtl" src="./apartment-living-room-obj/apartment-living-room.mtl"></a-asset-item> -->
+          <a-asset-item id="house-gltf" src="./apartment-living-room-obj/apartment-living-room.gltf"></a-asset-item>
         </a-assets>
         <!-- <a-entity gltf-model="#cityModel" modify-materials></a-entity> -->
-        <a-obj-model src="#house-obj" mtl="#house-mtl"></a-obj-model>
+        <a-entity gltf-model="#house-gltf" modify-materials></a-entity>
+        <!-- <a-obj-model src="#house-obj" mtl="#house-mtl"></a-obj-model> -->
         <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
         <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
         <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
