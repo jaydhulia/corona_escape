@@ -5,33 +5,42 @@
     <title>CoronaEscape</title>
     <meta name="description" content="CoronaEscape">
     <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="js/chair.js"></script>
   </head>
-    <a-scene>
-      <a-assets>
-        <img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg">
-        <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
-        <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg">
-      </a-assets>
-      
-      <a-box
-        src="#boxTexture"
-        position="0 2 -5"
-        rotation="0 45 45"
-        scale="2 2 2"
-        animation__position="property: object3D.position.y; to: 2.2; dir: alternate; dur: 2000; loop: true"
-        animation__mouseenter="property: scale; to: 2.3 2.3 2.3; dur: 300; startEvents: mouseenter"
-        animation__mouseleave="property: scale; to: 2 2 2; dur: 300; startEvents: mouseleave">
-      </a-box>
-      
-      <a-sky height="2048" radius="30" src="#skyTexture" theta-length="90" width="2048"></a-sky>
-      <a-light type="ambient" color="#445451"></a-light>
-      <a-light type="point" intensity="2" position="2 4 4"></a-light>
-      <a-plane src="#groundTexture" rotation="-90 0 0" height="100" width="100"></a-plane>
-      <a-text value="Hello and welcome to CoronaEscape!" color="#BBB" position="-2.9 1.0 -3" scale="1.5 1.5 1.5"></a-text>
-      
-      <a-camera>
-        <a-cursor color="#FAFAFA"></a-cursor>
-      </a-camera>
-    </a-scene>
+  <body>
+    <a-scene background="color: #ECECEC" physics="debug: true; gravity: 0">
+        <a-assets>
+          <a-asset-item id="house-gltf" src="./apartment-living-room-obj/apartment-living-room.gltf"></a-asset-item>
+        </a-assets>
+        
+        <a-entity gltf-model="#house-gltf" modify-materials></a-entity>
+        <a-box dynamic-body position="0 0.5 -5" width="3" height="5" depth="1" mass="400"></a-box>
+        <a-box static-body position="10 0.5 -5" width="3" height="5" depth="1" mass="4"></a-box>
+        <a-entity id="camera" position="0 1.6 0">
+          <a-entity id="camera" camera look-controls wasd-controls kinematic-body></a-entity>
+        </a-entity>
+      </a-scene>
+
+      <script>
+        // get this data json below from backend
+        var jsonDataArr = ['jsonData: {"width": "1", "height": "2", "depth": "1", "color": "orange", "x": "2", "y": "0", "z": "0"}',
+                           'jsonData: {"width": "1", "height": "2", "depth": "1", "color": "blue", "x": "0", "y": "0", "z": "0"}',
+                           'jsonData: {"width": "1", "height": "2", "depth": "1", "color": "green", "x": "-2", "y": "0", "z": "0"}'];
+        
+        jsonDataArr.forEach(objCreate);
+
+        function objCreate(jsonData, index) {
+          var sceneEl = document.querySelector('a-scene');
+          var entityEl = document.createElement('a-entity');
+          entityEl.setAttribute('chair', jsonData);
+          sceneEl.appendChild(entityEl);
+        }
+      </script>
   </body>
 </html>
+
+
+
+
