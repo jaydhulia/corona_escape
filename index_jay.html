@@ -14,7 +14,7 @@
     <script src="js/locker.js"></script>
   </head>
   <body>
-    <a-scene cursor="rayOrigin:mouse" background="color: #ECECEC" physics="debug: true; gravity: -9.81" cursor="rayOrigin:mouse">
+      <a-scene cursor="rayOrigin:mouse" background="color: #ECECEC" physics="debug: true; gravity: -9.81" raycaster="objects: .link">
         <a-assets>
           <a-asset-item id="house-gltf" src="./apartment-living-room-obj/apartment-living-room.gltf"></a-asset-item>
           <a-asset-item id="chair-gltf" src="./models/armchair.gltf"></a-asset-item>
@@ -55,9 +55,8 @@
           var entityEl = document.createElement('a-entity');
 
           entityEl.setAttribute('gltf-model', backendDataParsed.src);
-          
           entityEl.setAttribute(backendDataParsed.objType, 'jsonData', JSON.stringify(backendDataParsed.jsonData));
-          
+          entityEl.classList.add("link");
           sceneEl.appendChild(entityEl);
         }
 
