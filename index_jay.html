@@ -12,9 +12,10 @@
     <script src="js/closedbook.js"></script>
     <script src="js/openbook.js"></script>
     <script src="js/locker.js"></script>
+    <script src="js/character.js"></script>
   </head>
   <body>
-      <a-scene cursor="rayOrigin:mouse" background="color: #ECECEC" physics="debug: true; gravity: -9.81" raycaster="objects: .link">
+      <a-scene cursor="rayOrigin:mouse" background="color: #ECECEC" physics="debug: false; gravity: -9.81" raycaster="objects: .link">
         <a-assets>
           <a-asset-item id="house-gltf" src="./apartment-living-room-obj/apartment-living-room.gltf"></a-asset-item>
           <a-asset-item id="chair-gltf" src="./models/armchair.gltf"></a-asset-item>
@@ -50,7 +51,8 @@
           '{"objType": "sanitizer", "src": "./models/sanitizer.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "green", "x": "-3.75", "y": "1.5", "z": "-2.5", "scaleX": "0.05", "scaleY": "0.05", "scaleZ": "0.05", "rotateX": "-90", "rotateY": "90", "rotateZ": "0"}}',
           '{"objType": "closedbook", "src": "./models/closed_book/scene.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "green", "x": "0", "y": "0.70", "z": "0.5", "scaleX": "0.25", "scaleY": "0.25", "scaleZ": "0.25", "rotateX": "0", "rotateY": "90", "rotateZ": "90"}}',
           '{"objType": "openbook", "src": "./models/open_book/scene.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "green", "x": "0", "y": "0.70", "z": "0.5", "scaleX": "0.001", "scaleY": "0.001", "scaleZ": "0.001", "rotateX": "-90", "rotateY": "0", "rotateZ": "0"}}',
-          '{"objType": "locker", "src": "./models/locker/scene.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "green", "x": "-4.6", "y": "-0.2", "z": "-1.5", "scaleX": "0.015", "scaleY": "0.017", "scaleZ": "0.015", "rotateX": "0", "rotateY": "78", "rotateZ": "0"}}'
+          '{"objType": "locker", "src": "./models/locker/scene.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "green", "x": "-4.6", "y": "-0.2", "z": "-1.5", "scaleX": "0.015", "scaleY": "0.017", "scaleZ": "0.015", "rotateX": "0", "rotateY": "78", "rotateZ": "0"}}',
+          '{"objType": "character", "src": "./models/cyberpunk_character/scene.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "green", "x": "2.3", "y": "1.7", "z": "2.3", "scaleX": "0.01", "scaleY": "0.01", "scaleZ": "0.01", "rotateX": "0", "rotateY": "0", "rotateZ": "0"}}'
         ];
 
         jsonDataArr.forEach(objCreate);
