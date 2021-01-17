@@ -64,7 +64,9 @@
 
           entityEl.setAttribute('gltf-model', backendDataParsed.src);
           entityEl.setAttribute(backendDataParsed.objType, 'jsonData', JSON.stringify(backendDataParsed.jsonData));
-          entityEl.classList.add("link");
+          if(backendDataParsed.objType==="sanitizer"){
+            entityEl.classList.add("link");
+          }
           sceneEl.appendChild(entityEl);
         }
 

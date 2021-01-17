@@ -26,6 +26,8 @@ AFRAME.registerComponent('realchair', {
                 el.setAttribute('animation__mouseclickmove', "property: object3D.position.x; to: -3; dir: alternate; dur: 500;");
                 el.setAttribute('animation__mouseclick', "property: rotation; to: 0 360 0; dur:10; startEvents: click");
                 el.setAttribute('animation__mouseclickcomplete', "property: rotation; to: 0 0 0; dur:500; dir:reverse; startEvents: animationcomplete__mouseclick");
+                var cbEl = document.querySelector('[closedbook]');
+                cbEl.classList.add("link");
             });
         } else if(data.x === "2"){
             el.setAttribute('animation__mouseclick', "property: rotation; to: 0 360 0; dur:10; startEvents: click");

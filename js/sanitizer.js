@@ -47,6 +47,13 @@ AFRAME.registerComponent('sanitizer', {
             });
         // el.setAttribute('property', "scale; to: 0.055 0.055 0.055; dur: 200; dir:alternate; startEvents: mouseenter");
         });
+        el.addEventListener('click', function () {
+            var chairsEl = document.querySelectorAll('[realchair]');
+            console.log(chairsEl);
+            chairsEl.forEach(function (chairEl) {
+                chairEl.classList.add("link");
+            });
+        })
     }
 });
 
