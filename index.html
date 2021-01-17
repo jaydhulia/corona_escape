@@ -5,23 +5,104 @@
     <title>CoronaEscape</title>
     <meta name="description" content="CoronaEscape">
     <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <!-- <script src="https://rawgit.com/aframevr/aframe/c4aa63e/dist/aframe-master.min.js"></script> -->
+    <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
+    <script src="js/aframe-super-keyboard.min.js"></script>
+    <script src="js/keypad.js"></script>
+    <script src="js/realchair.js"></script>
+    <script src="js/sanitizer.js"></script>
+    <script src="js/closedbook.js"></script>
+    <script src="js/openbook.js"></script>
+    <script src="js/locker.js"></script>
+    <script src="js/mask.js"></script>
+    <script src="js/character.js"></script>
   </head>
   <body>
-    <a-scene background="color: #ECECEC">
+      <a-scene cursor="rayOrigin:mouse" background="color: #ECECEC" physics="debug: false; gravity: -9.81" raycaster="objects: .link">
         <a-assets>
-          <!-- <a-asset-item id="cityModel" src="https://cdn.aframe.io/test-models/models/glTF-2.0/virtualcity/VC.gltf"></a-asset-item> -->
-          <!-- TODO: look into changing .obj files to .gltf as .gltf is recommended -->
-          <!-- <a-asset-item id="house-obj" src="./apartment-living-room-obj/apartment-living-room.obj"></a-asset-item>
-          <a-asset-item id="house-mtl" src="./apartment-living-room-obj/apartment-living-room.mtl"></a-asset-item> -->
           <a-asset-item id="house-gltf" src="./apartment-living-room-obj/apartment-living-room.gltf"></a-asset-item>
+          <a-asset-item id="chair-gltf" src="./models/armchair.gltf"></a-asset-item>
         </a-assets>
-        <!-- <a-entity gltf-model="#cityModel" modify-materials></a-entity> -->
+        
         <a-entity gltf-model="#house-gltf" modify-materials></a-entity>
-        <!-- <a-obj-model src="#house-obj" mtl="#house-mtl"></a-obj-model> -->
-        <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-        <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-        <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-        <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+        <a-box static-body="shape: auto" position="0 0.5 -4.5" width="10" height="5" depth="1"></a-box>
+        <a-box static-body="shape: auto" position="0 0.5 4.5" width="10" height="5" depth="1"></a-box>
+        <a-box static-body="shape: auto" position="-5.1 0.5 0" rotation="0 90 0" width="10" height="5" depth="1"></a-box>
+        <a-box static-body="shape: auto" position="4.5 0.5 0" rotation="0 90 0" width="10" height="5" depth="1"></a-box>
+        <a-box static-body="shape: auto" position="0 -0.52 0" rotation="90 0 0" width="20" height="10" depth="1"></a-box>
+        <a-entity id="camera" position="0 1.6 -0.75">
+          <a-entity id="camera" camera look-controls="pointerLockEnabled: true;" wasd-controls kinematic-body></a-entity>
+        </a-entity>
+        <a-entity id="colored-text" position="0 2 -3.5"
+          animation="property: components.text.material.uniforms.color.value; type: color; to: red; dir: alternate; loop: true"
+          text="color: white; align: center; value: Maintain Social Distance!; width: 4">
+        </a-entity>
+        <a-entity id="book-popup-container" visible="false">
+          <a-text value="Wear a mask to talk to people!" position="0 0.5 0" rotation="-90 180 0" align="center" side="double"></a-text>
+        </a-entity>
+        <a-entity id="person-popup-container" visible="false">
+          <a-text value="The code is 26843!" color="#BBB" position="1.5 2 1.5" rotation="0 225 0" align="center" side="double"></a-text>
+        </a-entity>
+        <a-entity id="keypad-popup-container" visible="true">
+          <a-entity
+            id="keyboard-display"
+            position="-3.5 1.2 0" 
+            rotation="0 90 0"
+            scale="3 3 3"
+            super-keyboard="hand: #mouseCursor; imagePath:./img/; multipleInputs:true; filters: numbers; model: numpad; align: center; maxLength: 5"
+            my_keyboard_controller 
+            passfilter>
+          </a-entity>
+          <a-entity id="hand" laser-controls="hand: right">
+            <a-sphere radius="0.01"></a-sphere>
+          </a-entity>
+        </a-entity>
       </a-scene>
+
+      <script>
+        // get this data json below from backend      
+
+        var jsonDataArr = [
+          '{"objType": "realchair", "src": "./models/armchair.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "orange", "x": "2", "y": "0", "z": "-3", "scaleX": "0.00045", "scaleY": "0.00045", "scaleZ": "0.00045", "rotateX": "0", "rotateY": "0", "rotateZ": "0"}}',
+          '{"objType": "realchair", "src": "./models/armchair.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "blue", "x": "1", "y": "0", "z": "-3", "scaleX": "0.00045", "scaleY": "0.00045", "scaleZ": "0.00045", "rotateX": "0", "rotateY": "0", "rotateZ": "0"}}',
+          '{"objType": "sanitizer", "src": "./models/sanitizer.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "green", "x": "-3.75", "y": "1.5", "z": "-2.5", "scaleX": "0.05", "scaleY": "0.05", "scaleZ": "0.05", "rotateX": "-90", "rotateY": "90", "rotateZ": "0"}}',
+          '{"objType": "closedbook", "src": "./models/closed_book/scene.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "green", "x": "0", "y": "0.70", "z": "0.5", "scaleX": "0.25", "scaleY": "0.25", "scaleZ": "0.25", "rotateX": "0", "rotateY": "90", "rotateZ": "90"}}',
+          '{"objType": "openbook", "src": "./models/open_book/scene.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "green", "x": "0", "y": "0.70", "z": "0.5", "scaleX": "0.001", "scaleY": "0.001", "scaleZ": "0.001", "rotateX": "-90", "rotateY": "0", "rotateZ": "0"}}',
+          '{"objType": "locker", "src": "./models/locker/scene.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "green", "x": "-4.6", "y": "-0.2", "z": "-1.5", "scaleX": "0.015", "scaleY": "0.017", "scaleZ": "0.015", "rotateX": "0", "rotateY": "78", "rotateZ": "0"}}',
+          '{"objType": "mask", "src": "./models/discarded_covid-19_mask/scene.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "green", "x": "-1.5", "y": "0.725", "z": "2.7", "scaleX": "0.015", "scaleY": "0.015", "scaleZ": "0.015", "rotateX": "0", "rotateY": "78", "rotateZ": "0"}}',
+          '{"objType": "character", "src": "./models/cyberpunk_character/scene.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "green", "x": "2.3", "y": "1.7", "z": "2.3", "scaleX": "0.01", "scaleY": "0.01", "scaleZ": "0.01", "rotateX": "0", "rotateY": "0", "rotateZ": "0"}}'
+        ];
+
+        jsonDataArr.forEach(objCreate);
+
+        function objCreate(backendData, index) {
+          var backendDataParsed = JSON.parse(backendData);
+          var sceneEl = document.querySelector('a-scene');
+          var entityEl = document.createElement('a-entity');
+
+          entityEl.setAttribute('gltf-model', backendDataParsed.src);
+          entityEl.setAttribute(backendDataParsed.objType, 'jsonData', JSON.stringify(backendDataParsed.jsonData));
+          if(backendDataParsed.objType==="sanitizer"){
+            entityEl.classList.add("link");
+          }
+          sceneEl.appendChild(entityEl);
+        }
+
+        // var playerEl = document.querySelector('[camera]');
+        //   playerEl.addEventListener('collide', function (e) {
+        //     console.log('Player has collided with body #' + e.detail.body.id);
+        //     console.log(e.detail.target.el.object3D.position);
+        //     // e.detail.target.el.setAttribute('position', {"x": e.detail.target.el.object3D.position.x, "y": 0, "z": e.detail.target.el.object3D.position.z});
+        //     e.detail.body.el;    // Other entity, which playerEl touched.
+        //     e.detail.contact;    // Stats about the collision (CANNON.ContactEquation).
+        //     e.detail.contact.ni; // Normal (direction) of the collision (CANNON.Vec3).
+        //   });
+      </script>
   </body>
 </html>
+
+
+
+
