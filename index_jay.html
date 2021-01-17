@@ -7,6 +7,10 @@
     <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
     <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <!-- <script src="https://rawgit.com/aframevr/aframe/c4aa63e/dist/aframe-master.min.js"></script> -->
+    <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
+    <script src="js/aframe-super-keyboard.min.js"></script>
+    <script src="js/keypad.js"></script>
     <script src="js/realchair.js"></script>
     <script src="js/sanitizer.js"></script>
     <script src="js/closedbook.js"></script>
@@ -39,6 +43,21 @@
         </a-entity>
         <a-entity id="person-popup-container" visible="false">
           <a-text value="The code is 26843!" color="#BBB" position="1.5 2 1.5" rotation="0 225 0" align="center" side="double"></a-text>
+        </a-entity>
+        <a-entity id="keypad-popup-container" visible="true">
+          <a-entity
+            id="keyboard"
+            position="-3.5 1.2 0" 
+            rotation="0 90 0"
+            scale="3 3 3"
+            super-keyboard="hand: #mouseCursor; imagePath:./img/; filters: numbers; model: numpad; align: center; maxLength: 5"
+            keyBgColor="black"
+            my_keyboard_controller
+            passfilter>
+          </a-entity>
+          <a-entity id="hand" laser-controls="hand: right">
+            <a-sphere radius="0.01"></a-sphere>
+          </a-entity>
         </a-entity>
       </a-scene>
 
