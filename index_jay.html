@@ -35,7 +35,7 @@
         <a-entity id="camera" position="0 1.6 -0.75">
           <a-entity id="camera" camera look-controls="pointerLockEnabled: true;" wasd-controls kinematic-body></a-entity>
         </a-entity>
-        <a-entity id="color" position="0 2 -3.5"
+        <a-entity id="colored-text" position="0 2 -3.5"
           animation="property: components.text.material.uniforms.color.value; type: color; to: red; dir: alternate; loop: true"
           text="color: white; align: center; value: Maintain Social Distance!; width: 4">
         </a-entity>
@@ -47,13 +47,12 @@
         </a-entity>
         <a-entity id="keypad-popup-container" visible="true">
           <a-entity
-            id="keyboard"
+            id="keyboard-display"
             position="-3.5 1.2 0" 
             rotation="0 90 0"
             scale="3 3 3"
-            super-keyboard="hand: #mouseCursor; imagePath:./img/; filters: numbers; model: numpad; align: center; maxLength: 5"
-            keyBgColor="black"
-            my_keyboard_controller
+            super-keyboard="hand: #mouseCursor; imagePath:./img/; multipleInputs:true; filters: numbers; model: numpad; align: center; maxLength: 5"
+            my_keyboard_controller 
             passfilter>
           </a-entity>
           <a-entity id="hand" laser-controls="hand: right">
