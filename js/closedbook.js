@@ -17,9 +17,17 @@ AFRAME.registerComponent('closedbook', {
         el.setAttribute('position', {"x": data.x, "y": data.y, "z": data.z});
         el.setAttribute('rotation', {"x": data.rotateX, "y": data.rotateY, "z": data.rotateZ});
         el.setAttribute('static-body', 'shape: auto');
-
+        el.setAttribute('animation__mouseenter', "property: scale; to: 0.3 0.3 0.3; dur: 200; dir:alternate; startEvents: mouseenter");
+        el.setAttribute('animation__mouseleave', "property: scale; to: 0.25 0.25 0.25; dur: 200; startEvents: mouseleave");
+        
         // Default visibility to true, update to false object is discovered
         el.setAttribute('visible', true);
+        el.addEventListener('click', function () {
+            var obEl = document.querySelector('[openbook]');
+            obEl.setAttribute('visible', true);
+            el.setAttribute('visible', false);
+            console.log("MASK OFF! MASK OFF!");
+        });
     }
 });
 
