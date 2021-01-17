@@ -23,43 +23,43 @@
   <body>
       <a-scene cursor="rayOrigin:mouse" background="color: #ECECEC" physics="debug: false; gravity: -9.81" raycaster="objects: .link">
         <a-box static-body="shape: auto" position="0 -0.52 0" rotation="90 0 0" width="20" height="10" depth="1" floor></a-box>
+        <a-box static-body="shape: auto" position="0 0.5 -4.5" width="10" height="5" depth="1" floor></a-box>
+        <a-box static-body="shape: auto" position="0 0.5 4.5" width="10" height="5" depth="1" floor></a-box>
+        <a-box static-body="shape: auto" position="-5.1 0.5 0" rotation="0 90 0" width="10" height="5" depth="1" floor></a-box>
+        <a-box static-body="shape: auto" position="4.5 0.5 0" rotation="0 90 0" width="10" height="5" depth="1" floor></a-box>
         <a-assets>
           <a-asset-item id="house-gltf" src="./apartment-living-room-obj/apartment-living-room.gltf"></a-asset-item>
           <a-asset-item id="chair-gltf" src="./models/armchair.gltf"></a-asset-item>
         </a-assets>
         
         <a-entity gltf-model="#house-gltf" modify-materials></a-entity>
-        <a-box static-body="shape: auto" position="0 0.5 -4.5" width="10" height="5" depth="1" floor></a-box>
-        <a-box static-body="shape: auto" position="0 0.5 4.5" width="10" height="5" depth="1" floor></a-box>
-        <a-box static-body="shape: auto" position="-5.1 0.5 0" rotation="0 90 0" width="10" height="5" depth="1" floor></a-box>
-        <a-box static-body="shape: auto" position="4.5 0.5 0" rotation="0 90 0" width="10" height="5" depth="1" floor></a-box>
-        <a-entity id="camera" position="0 1.8 -0.75">
-          <a-entity id="camera" camera camera-floor></a-entity>
-        </a-entity>
         <a-entity id="colored-text" position="0 2 -3.5"
-          animation="property: components.text.material.uniforms.color.value; type: color; to: red; dir: alternate; loop: true"
-          text="color: white; align: center; value: Maintain Social Distance!; width: 4">
-        </a-entity>
-        <a-entity id="book-popup-container" visible="false">
-          <a-text value="Wear a mask to talk to people!" position="0 0.5 0" rotation="-90 180 0" align="center" side="double"></a-text>
-        </a-entity>
-        <a-entity id="person-popup-container" visible="false">
-          <a-text value="The code is 26843!" color="#BBB" position="1.5 2 1.5" rotation="0 225 0" align="center" side="double"></a-text>
-        </a-entity>
-        <a-entity id="keypad-popup-container" visible="true">
+        animation="property: components.text.material.uniforms.color.value; type: color; to: red; dir: alternate; loop: true"
+        text="color: white; align: center; value: Maintain Social Distance!; width: 4">
+      </a-entity>
+      <a-entity id="book-popup-container" visible="false">
+        <a-text value="Wear a mask to talk to people!" position="0 0.5 0" rotation="-90 180 0" align="center" side="double"></a-text>
+      </a-entity>
+      <a-entity id="person-popup-container" visible="false">
+        <a-text value="The code is 26843!" color="#BBB" position="1.5 2 1.5" rotation="0 225 0" align="center" side="double"></a-text>
+      </a-entity>
+      <a-entity id="keypad-popup-container" visible="true">
           <a-entity
-            id="keyboard-display"
-            position="-3.5 1.2 0" 
-            rotation="0 90 0"
-            scale="3 3 3"
-            super-keyboard="hand: #mouseCursor; imagePath:./img/; multipleInputs:true; filters: numbers; model: numpad; align: center; maxLength: 5"
-            my_keyboard_controller 
-            passfilter>
-          </a-entity>
-          <a-entity id="hand" laser-controls="hand: right">
-            <a-sphere radius="0.01"></a-sphere>
-          </a-entity>
+          id="keyboard-display"
+          position="-3.5 1.2 0" 
+          rotation="0 90 0"
+          scale="3 3 3"
+          super-keyboard="hand: #mouseCursor; imagePath:./img/; multipleInputs:true; filters: numbers; model: numpad; align: center; maxLength: 5"
+          my_keyboard_controller 
+          passfilter>
         </a-entity>
+        <a-entity id="hand" laser-controls="hand: right">
+          <a-sphere radius="0.01"></a-sphere>
+        </a-entity>
+      </a-entity>
+      <a-entity id="camera" position="0 1.8 -0.75">
+        <a-entity id="camera" camera camera-floor></a-entity>
+      </a-entity>
         <!-- <a-entity id="river" geometry="primitive: plane" material="color: blue"
           position="2.3 1.7 2.3" sound="src: url(./sounds/cough1.mp3); refDistance: 0.5; rollOffFactor: 1000; autoplay: true; loop: true"></a-entity> -->
       </a-scene>
