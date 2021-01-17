@@ -40,7 +40,6 @@ AFRAME.registerComponent("openbook", {
       var cbEl = document.querySelector("[closedbook]");
       cbEl.setAttribute("visible", !cbEl.getAttribute("visible"));
       el.setAttribute("visible", !el.getAttribute("visible"));
-      console.log("BORINGGGGGGGGGGG!");
     });
     // Default visibility to false, update to true object is discovered
 
