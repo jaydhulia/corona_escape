@@ -52,6 +52,9 @@ AFRAME.registerComponent("closedbook", {
             .querySelector("#book-popup-container")
             .getAttribute("visible")
         );
+      document
+        .querySelector("[mask]")
+        .classList.add("link");
     });
   },
 });
