@@ -9,6 +9,8 @@
     <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
     <script src="js/realchair.js"></script>
     <script src="js/sanitizer.js"></script>
+    <script src="js/closedbook.js"></script>
+    <script src="js/openbook.js"></script>
   </head>
   <body>
     <a-scene cursor="rayOrigin:mouse" background="color: #ECECEC" physics="debug: true; gravity: -9.81" cursor="rayOrigin:mouse">
@@ -18,13 +20,17 @@
         </a-assets>
         
         <a-entity gltf-model="#house-gltf" modify-materials></a-entity>
-        <a-box static-body="shape: auto" position="0 0.5 -5" width="10" height="5" depth="1"></a-box>
+        <a-box static-body="shape: auto" position="0 0.5 -4.5" width="10" height="5" depth="1"></a-box>
         <a-box static-body="shape: auto" position="0 0.5 4.5" width="10" height="5" depth="1"></a-box>
         <a-box static-body="shape: auto" position="-5.1 0.5 0" rotation="0 90 0" width="10" height="5" depth="1"></a-box>
         <a-box static-body="shape: auto" position="4.5 0.5 0" rotation="0 90 0" width="10" height="5" depth="1"></a-box>
         <a-box static-body="shape: auto" position="0 -0.52 0" rotation="90 0 0" width="20" height="10" depth="1"></a-box>
-        <a-entity id="camera" position="0 1.6 0">
+        <a-entity id="camera" position="0 1.6 -0.75">
           <a-entity id="camera" camera look-controls wasd-controls kinematic-body></a-entity>
+        </a-entity>
+        <a-entity id="color" position="0 2 -3.5"
+          animation="property: components.text.material.uniforms.color.value; type: color; to: red; dir: alternate; loop: true"
+          text="color: white; align: center; value: Maintain Social Distance!; width: 4">
         </a-entity>
       </a-scene>
 
@@ -33,9 +39,10 @@
 
         var jsonDataArr = [
           '{"objType": "realchair", "src": "./models/armchair.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "orange", "x": "2", "y": "0", "z": "-3", "scaleX": "0.00045", "scaleY": "0.00045", "scaleZ": "0.00045", "rotateX": "0", "rotateY": "0", "rotateZ": "0"}}',
-          '{"objType": "realchair", "src": "./models/armchair.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "blue", "x": "0", "y": "0", "z": "-3", "scaleX": "0.00045", "scaleY": "0.00045", "scaleZ": "0.00045", "rotateX": "0", "rotateY": "0", "rotateZ": "0"}}',
-          '{"objType": "realchair", "src": "./models/armchair.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "green", "x": "-2", "y": "0", "z": "-3", "scaleX": "0.00045", "scaleY": "0.00045", "scaleZ": "0.00045", "rotateX": "0", "rotateY": "0", "rotateZ": "0"}}',
-          '{"objType": "sanitizer", "src": "./models/sanitizer.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "green", "x": "-3.75", "y": "1.5", "z": "-2.5", "scaleX": "0.05", "scaleY": "0.05", "scaleZ": "0.05", "rotateX": "-90", "rotateY": "90", "rotateZ": "0"}}'
+          '{"objType": "realchair", "src": "./models/armchair.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "blue", "x": "1", "y": "0", "z": "-3", "scaleX": "0.00045", "scaleY": "0.00045", "scaleZ": "0.00045", "rotateX": "0", "rotateY": "0", "rotateZ": "0"}}',
+          '{"objType": "sanitizer", "src": "./models/sanitizer.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "green", "x": "-3.75", "y": "1.5", "z": "-2.5", "scaleX": "0.05", "scaleY": "0.05", "scaleZ": "0.05", "rotateX": "-90", "rotateY": "90", "rotateZ": "0"}}',
+          '{"objType": "closedbook", "src": "./models/closed_book/scene.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "green", "x": "0", "y": "0.70", "z": "0.5", "scaleX": "0.25", "scaleY": "0.25", "scaleZ": "0.25", "rotateX": "0", "rotateY": "90", "rotateZ": "90"}}',
+          '{"objType": "openbook", "src": "./models/open_book/scene.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "green", "x": "0", "y": "0.70", "z": "0.5", "scaleX": "0.001", "scaleY": "0.001", "scaleZ": "0.001", "rotateX": "-90", "rotateY": "0", "rotateZ": "0"}}'
         ];
 
         jsonDataArr.forEach(objCreate);
