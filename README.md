@@ -27,10 +27,10 @@ The game is functional on both web and mobile.
 Some screenshots of the gameplay is included below!
 
 <div align="left">
-    <img src="/screenshots/game1.png" width="250px" hspace="5"></img>
-    <img src="/screenshots/game2.png" width="250px" hspace="5"></img>
-    <img src="/screenshots/game3.png" width="250px" hspace="5"></img>
-    <img src="/screenshots/game4.png" width="250px" hspace="5"></img>
+    <img src="/screenshots/game1.png" width="350px" hspace="5"></img>
+    <img src="/screenshots/game2.png" width="350px" hspace="5"></img>
+    <img src="/screenshots/game3.png" width="350px" hspace="5"></img>
+    <img src="/screenshots/game4.png" width="350px" hspace="5"></img>
 </div>
 
 ## Conclusion
