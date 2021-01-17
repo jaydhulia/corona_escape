@@ -18,5 +18,5 @@ async function renderFloor(){
     playerEl.setAttribute('look-controls', 'pointerLockEnabled: true');
     playerEl.setAttribute('wasd-controls', '');
     playerEl.setAttribute('kinematic-body', '');
-  }, (4 * 1000));
+  }, (6 * 1000));
 }
