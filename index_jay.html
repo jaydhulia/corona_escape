@@ -17,7 +17,6 @@
         </a-assets>
         
         <a-entity gltf-model="#house-gltf" modify-materials></a-entity>
-        <a-entity static-body gltf-model="#chair-gltf" scale="0.00045 0.00045 0.00045" position="2 0 0" modify-materials></a-entity>
         <a-box static-body="shape: auto" position="0 0.5 -5" width="10" height="5" depth="1"></a-box>
         <a-box static-body="shape: auto" position="0 0.5 4.5" width="10" height="5" depth="1"></a-box>
         <a-box static-body="shape: auto" position="-5.1 0.5 0" rotation="0 90 0" width="10" height="5" depth="1"></a-box>
@@ -28,18 +27,13 @@
       </a-scene>
 
       <script>
-        // get this data json below from backend
-        // var jsonDataArr = [
-        //   '{"objType": "chair", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "orange", "x": "2", "y": "0", "z": "0"}}',
-        //   '{"objType": "chair", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "blue", "x": "0", "y": "0", "z": "0"}}',
-        //   '{"objType": "chair", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "green", "x": "-2", "y": "0", "z": "0"}}'
-        // ];
-        
+        // get this data json below from backend      
 
         var jsonDataArr = [
-          '{"objType": "realchair", "src": "./models/armchair.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "orange", "x": "2", "y": "0", "z": "-3", "scaleX": "0.00045", "scaleY": "0.00045", "scaleZ": "0.00045"}}',
-          '{"objType": "realchair", "src": "./models/armchair.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "blue", "x": "0", "y": "0", "z": "-3", "scaleX": "0.00045", "scaleY": "0.00045", "scaleZ": "0.00045"}}',
-          '{"objType": "realchair", "src": "./models/armchair.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "green", "x": "-2", "y": "0", "z": "-3", "scaleX": "0.00045", "scaleY": "0.00045", "scaleZ": "0.00045"}}'
+          '{"objType": "realchair", "src": "./models/armchair.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "orange", "x": "2", "y": "0", "z": "-3", "scaleX": "0.00045", "scaleY": "0.00045", "scaleZ": "0.00045", "rotateX": "0", "rotateY": "0", "rotateZ": "0"}}',
+          '{"objType": "realchair", "src": "./models/armchair.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "blue", "x": "0", "y": "0", "z": "-3", "scaleX": "0.00045", "scaleY": "0.00045", "scaleZ": "0.00045", "rotateX": "0", "rotateY": "0", "rotateZ": "0"}}',
+          '{"objType": "realchair", "src": "./models/armchair.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "green", "x": "-2", "y": "0", "z": "-3", "scaleX": "0.00045", "scaleY": "0.00045", "scaleZ": "0.00045", "rotateX": "0", "rotateY": "0", "rotateZ": "0"}}',
+          '{"objType": "realchair", "src": "./models/sanitizer.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "green", "x": "-3.75", "y": "1.5", "z": "-2.5", "scaleX": "0.05", "scaleY": "0.05", "scaleZ": "0.05", "rotateX": "-90", "rotateY": "90", "rotateZ": "0"}}'
         ];
 
         jsonDataArr.forEach(objCreate);
@@ -55,6 +49,16 @@
           
           sceneEl.appendChild(entityEl);
         }
+
+        // var playerEl = document.querySelector('[camera]');
+        //   playerEl.addEventListener('collide', function (e) {
+        //     console.log('Player has collided with body #' + e.detail.body.id);
+
+        //     e.detail.target.el;  // Original entity (playerEl).
+        //     e.detail.body.el;    // Other entity, which playerEl touched.
+        //     e.detail.contact;    // Stats about the collision (CANNON.ContactEquation).
+        //     e.detail.contact.ni; // Normal (direction) of the collision (CANNON.Vec3).
+        //   });
       </script>
   </body>
 </html>

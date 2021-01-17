@@ -12,11 +12,11 @@ AFRAME.registerComponent('realchair', {
     init: function () {
         var data = this.data.jsonData;
         var el = this.el;
-        el.setAttribute('static-body', 'shape: auto');
-
+        
         el.setAttribute('scale', {"x": data.scaleX, "y": data.scaleY, "z": data.scaleZ});
         el.setAttribute('position', {"x": data.x, "y": data.y, "z": data.z});
-
+        el.setAttribute('rotation', {"x": data.rotateX, "y": data.rotateY, "z": data.rotateZ});
+        el.setAttribute('static-body', 'shape: auto');
     }
 });
 
