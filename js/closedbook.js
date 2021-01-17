@@ -38,8 +38,8 @@ AFRAME.registerComponent("closedbook", {
     el.setAttribute("visible", true);
     el.addEventListener("click", function () {
       var obEl = document.querySelector("[openbook]");
-      obEl.setAttribute("visible", true);
-      el.setAttribute("visible", false);
+      obEl.setAttribute("visible", !obEl.getAttribute("visible"));
+      el.setAttribute("visible", !el.getAttribute("visible"));
       console.log("MASK OFF! MASK OFF!");
     });
 

@@ -24,8 +24,8 @@ AFRAME.registerComponent('openbook', {
         el.setAttribute('visible', false);
         el.addEventListener('click', function () {
             var cbEl = document.querySelector('[closedbook]');
-            cbEl.setAttribute('visible', true);
-            el.setAttribute('visible', false);
+            cbEl.setAttribute("visible", !cbEl.getAttribute("visible"));
+            el.setAttribute("visible", !el.getAttribute("visible"));
             console.log("BORINGGGGGGGGGGG!");
         });
         // Default visibility to false, update to true object is discovered
