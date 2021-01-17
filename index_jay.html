@@ -8,9 +8,10 @@
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
     <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
     <script src="js/realchair.js"></script>
+    <script src="js/sanitizer.js"></script>
   </head>
   <body>
-    <a-scene background="color: #ECECEC" physics="debug: true; gravity: -9.81">
+    <a-scene background="color: #ECECEC" physics="debug: true; gravity: -9.81" cursor="rayOrigin:mouse">
         <a-assets>
           <a-asset-item id="house-gltf" src="./apartment-living-room-obj/apartment-living-room.gltf"></a-asset-item>
           <a-asset-item id="chair-gltf" src="./models/armchair.gltf"></a-asset-item>
@@ -34,7 +35,7 @@
           '{"objType": "realchair", "src": "./models/armchair.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "orange", "x": "2", "y": "0", "z": "-3", "scaleX": "0.00045", "scaleY": "0.00045", "scaleZ": "0.00045", "rotateX": "0", "rotateY": "0", "rotateZ": "0"}}',
           '{"objType": "realchair", "src": "./models/armchair.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "blue", "x": "0", "y": "0", "z": "-3", "scaleX": "0.00045", "scaleY": "0.00045", "scaleZ": "0.00045", "rotateX": "0", "rotateY": "0", "rotateZ": "0"}}',
           '{"objType": "realchair", "src": "./models/armchair.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "green", "x": "-2", "y": "0", "z": "-3", "scaleX": "0.00045", "scaleY": "0.00045", "scaleZ": "0.00045", "rotateX": "0", "rotateY": "0", "rotateZ": "0"}}',
-          '{"objType": "realchair", "src": "./models/sanitizer.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "green", "x": "-3.75", "y": "1.5", "z": "-2.5", "scaleX": "0.05", "scaleY": "0.05", "scaleZ": "0.05", "rotateX": "-90", "rotateY": "90", "rotateZ": "0"}}'
+          '{"objType": "sanitizer", "src": "./models/sanitizer.gltf", "jsonData":{"width": "1", "height": "2", "depth": "1", "color": "green", "x": "-3.75", "y": "1.5", "z": "-2.5", "scaleX": "0.05", "scaleY": "0.05", "scaleZ": "0.05", "rotateX": "-90", "rotateY": "90", "rotateZ": "0"}}'
         ];
 
         jsonDataArr.forEach(objCreate);
