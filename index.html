@@ -6,7 +6,6 @@
     <meta name="description" content="CoronaEscape">
     <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
-    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
     <!-- <script src="https://rawgit.com/aframevr/aframe/c4aa63e/dist/aframe-master.min.js"></script> -->
     <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
     <script src="js/aframe-super-keyboard.min.js"></script>
@@ -18,22 +17,24 @@
     <script src="js/locker.js"></script>
     <script src="js/mask.js"></script>
     <script src="js/character.js"></script>
+    <script src="js/floor.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
   </head>
   <body>
       <a-scene cursor="rayOrigin:mouse" background="color: #ECECEC" physics="debug: false; gravity: -9.81" raycaster="objects: .link">
+        <a-box static-body="shape: auto" position="0 -0.52 0" rotation="90 0 0" width="20" height="10" depth="1" floor></a-box>
         <a-assets>
           <a-asset-item id="house-gltf" src="./apartment-living-room-obj/apartment-living-room.gltf"></a-asset-item>
           <a-asset-item id="chair-gltf" src="./models/armchair.gltf"></a-asset-item>
         </a-assets>
         
         <a-entity gltf-model="#house-gltf" modify-materials></a-entity>
-        <a-box static-body="shape: auto" position="0 0.5 -4.5" width="10" height="5" depth="1"></a-box>
-        <a-box static-body="shape: auto" position="0 0.5 4.5" width="10" height="5" depth="1"></a-box>
-        <a-box static-body="shape: auto" position="-5.1 0.5 0" rotation="0 90 0" width="10" height="5" depth="1"></a-box>
-        <a-box static-body="shape: auto" position="4.5 0.5 0" rotation="0 90 0" width="10" height="5" depth="1"></a-box>
-        <a-box static-body="shape: auto" position="0 -0.52 0" rotation="90 0 0" width="20" height="10" depth="1"></a-box>
+        <a-box static-body="shape: auto" position="0 0.5 -4.5" width="10" height="5" depth="1" floor></a-box>
+        <a-box static-body="shape: auto" position="0 0.5 4.5" width="10" height="5" depth="1" floor></a-box>
+        <a-box static-body="shape: auto" position="-5.1 0.5 0" rotation="0 90 0" width="10" height="5" depth="1" floor></a-box>
+        <a-box static-body="shape: auto" position="4.5 0.5 0" rotation="0 90 0" width="10" height="5" depth="1" floor></a-box>
         <a-entity id="camera" position="0 1.6 -0.75">
-          <a-entity id="camera" camera look-controls="pointerLockEnabled: true;" wasd-controls kinematic-body></a-entity>
+          <a-entity id="camera" camera camera-floor></a-entity>
         </a-entity>
         <a-entity id="colored-text" position="0 2 -3.5"
           animation="property: components.text.material.uniforms.color.value; type: color; to: red; dir: alternate; loop: true"
@@ -59,8 +60,8 @@
             <a-sphere radius="0.01"></a-sphere>
           </a-entity>
         </a-entity>
-        <a-entity id="river" geometry="primitive: plane" material="color: blue"
-          position="2.3 1.7 2.3" sound="src: url(./sounds/cough1.mp3); refDistance: 0.5; rollOffFactor: 1000; autoplay: true; loop: true"></a-entity>
+        <!-- <a-entity id="river" geometry="primitive: plane" material="color: blue"
+          position="2.3 1.7 2.3" sound="src: url(./sounds/cough1.mp3); refDistance: 0.5; rollOffFactor: 1000; autoplay: true; loop: true"></a-entity> -->
       </a-scene>
 
       <script>
@@ -91,7 +92,25 @@
           }
           sceneEl.appendChild(entityEl);
         }
+        // renderFloor();
+        // // look-controls="pointerLockEnabled: true;" wasd-controls kinematic-body
+        // async function renderFloor(){
+        //   // var sceneEl = document.querySelector('a-scene');
 
+        //   // var floorEl = document.createElement('a-box');
+        //   // floorEl.setAttribute('static-body','shape: auto');
+        //   // floorEl.setAttribute("position", { x: 0, y: -0.52, z: 0 });
+        //   // floorEl.setAttribute("rotation", { x: 90, y: 0, z: 0 });
+        //   // floorEl.setAttribute("width", 20);
+        //   // floorEl.setAttribute("height", 10);
+        //   // floorEl.setAttribute("depth", 10);
+        //   // sceneEl.appendChild(floorEl);
+        //   await new Promise(r => setTimeout(r, 1500));
+        //   var playerEl = document.querySelector('[camera]');
+        //   playerEl.setAttribute('look-controls', 'pointerLockEnabled: true');
+        //   playerEl.setAttribute('wasd-controls', '');
+        //   playerEl.setAttribute('kinematic-body', '');
+        // }
         // var playerEl = document.querySelector('[camera]');
         //   playerEl.addEventListener('collide', function (e) {
         //     console.log('Player has collided with body #' + e.detail.body.id);
