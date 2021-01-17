@@ -28,6 +28,7 @@ AFRAME.registerComponent('mask', {
             characterEl.forEach(function (characterEl) {
                 characterEl.classList.add("link");
             });
+            el.setAttribute("visible", false);
         })
     }
 });
