@@ -1,0 +1,141 @@
+<!-- Keyboard Locker
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>A-Frame Super Keyboard - Numeric Pad</title>
+    <meta name="description" content="Numpad for Super Keyboard."></meta>
+    <script src="https://rawgit.com/aframevr/aframe/c4aa63e/dist/aframe-master.min.js"></script>
+    <script src="js/aframe-super-keyboard.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
+  </head>
+  <body>
+    <a-scene environment="preset: contact; skyColor: #112214; horizonColor: #478d54; ground: hills; groundTexture: checkerboard; groundColor: #4f3e4b; groundColor2: #4d3c47; dressing: none; grid: none">
+      <a-entity cursor="rayOrigin: mouse"></a-entity>
+
+      <a-entity id="hand" laser-controls="hand: right">
+        <a-sphere radius="0.01"></a-sphere>
+      </a-entity>
+
+      Change hand to `#hand` for VR.
+
+      <script>
+        AFRAME.registerComponent('my_keyboard_controller', {
+          init: function(){
+            this.el.addEventListener('superkeyboardinput', function(event){
+              // alert(detail.value); // the text
+              console.log(event.detail.value)
+            });
+            this.el.addEventListener('superkeyboarddismiss', function(event){
+              // alert(detail.value); // the text
+              console.log("dismissed")
+            });
+          }
+        });
+      </script>
+
+      <a-entity
+        id="keyboard"
+        position="0 1.2 -0.5"
+        rotation="-10 0 0"
+        super-keyboard="hand: #mouseCursor; imagePath:./img/; filters: numbers; model: numpad; align: center; maxLength: 4"
+        my_keyboard_controller
+        passfilter></a-entity>
+
+
+    </a-scene>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello, WebVR! • A-Frame</title>
+    <meta name="description" content="Hello, WebVR! • A-Frame">
+    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
+    <script src="https://jesstelford.github.io/aframe-click-drag-component/build.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-sky color="#1A1A1A"></a-sky>
+      <a-plane static-body position="0 0 0" rotation="-90 0 0" width="50" height="50" color="white"></a-plane>
+      <a-assets>
+        <img id="cursorimage" src="https://cdn4.iconfinder.com/data/icons/cursors-gestures/100/click3-512.png"/>
+      </a-assets>
+
+      <a-sphere click-drag position="0 1.25 -1" radius="1.25" color="#EF2D5E"></a-sphere>
+
+      <a-entity position="0 0 3.8" id="container">
+        <a-camera look-controls-enabled="false" keyboard-controls="fpsMode: true" color="#FF0000"></a-camera>
+      </a-entity>
+
+    </a-scene>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
+
+ OLD
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CoronaEscape</title>
+    <meta name="description" content="CoronaEscape">
+    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene background="color: #ECECEC">
+        <a-assets>
+          <a-asset-item id="cityModel" src="https://cdn.aframe.io/test-models/models/glTF-2.0/virtualcity/VC.gltf"></a-asset-item>
+          TODO: look into changing .obj files to .gltf as .gltf is recommended
+          <a-asset-item id="house-obj" src="./apartment-living-room-obj/apartment-living-room.obj"></a-asset-item>
+          <a-asset-item id="house-mtl" src="./apartment-living-room-obj/apartment-living-room.mtl"></a-asset-item>
+          <a-asset-item id="house-gltf" src="./apartment-living-room-obj/apartment-living-room.gltf"></a-asset-item>
+        </a-assets>
+        <a-entity gltf-model="#cityModel" modify-materials></a-entity>
+        <a-entity gltf-model="#house-gltf" modify-materials></a-entity>
+        <a-obj-model src="#house-obj" mtl="#house-mtl"></a-obj-model>
+        <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+        <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+        <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+        <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+      </a-scene>
+  </body>
+</html> -->
