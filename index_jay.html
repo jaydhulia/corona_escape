@@ -10,7 +10,7 @@
     <script src="js/realchair.js"></script>
   </head>
   <body>
-    <a-scene background="color: #ECECEC" physics="debug: true; gravity: 0">
+    <a-scene background="color: #ECECEC" physics="debug: true; gravity: -9.81">
         <a-assets>
           <a-asset-item id="house-gltf" src="./apartment-living-room-obj/apartment-living-room.gltf"></a-asset-item>
           <a-asset-item id="chair-gltf" src="./models/armchair.gltf"></a-asset-item>
@@ -21,6 +21,7 @@
         <a-box static-body="shape: auto" position="0 0.5 4.5" width="10" height="5" depth="1"></a-box>
         <a-box static-body="shape: auto" position="-5.1 0.5 0" rotation="0 90 0" width="10" height="5" depth="1"></a-box>
         <a-box static-body="shape: auto" position="4.5 0.5 0" rotation="0 90 0" width="10" height="5" depth="1"></a-box>
+        <a-box static-body="shape: auto" position="0 -0.52 0" rotation="90 0 0" width="20" height="10" depth="1"></a-box>
         <a-entity id="camera" position="0 1.6 0">
           <a-entity id="camera" camera look-controls wasd-controls kinematic-body></a-entity>
         </a-entity>
@@ -53,8 +54,8 @@
         // var playerEl = document.querySelector('[camera]');
         //   playerEl.addEventListener('collide', function (e) {
         //     console.log('Player has collided with body #' + e.detail.body.id);
-
-        //     e.detail.target.el;  // Original entity (playerEl).
+        //     console.log(e.detail.target.el.object3D.position);
+        //     // e.detail.target.el.setAttribute('position', {"x": e.detail.target.el.object3D.position.x, "y": 0, "z": e.detail.target.el.object3D.position.z});
         //     e.detail.body.el;    // Other entity, which playerEl touched.
         //     e.detail.contact;    // Stats about the collision (CANNON.ContactEquation).
         //     e.detail.contact.ni; // Normal (direction) of the collision (CANNON.Vec3).
