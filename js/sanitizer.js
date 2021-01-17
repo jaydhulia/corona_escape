@@ -30,7 +30,6 @@ AFRAME.registerComponent('sanitizer', {
             const obj = el.getObject3D('mesh');
             // Go over the submeshes and modify materials we want.
             obj.traverse(node => {
-                console.log(node);
                 if (node.name.indexOf('Node') !== -1) {
                     node.material.color.set('#AAA');
                 }
@@ -42,7 +41,6 @@ AFRAME.registerComponent('sanitizer', {
             console.log("RUB YO HANDS NOW");
             const obj = el.getObject3D('mesh');
             obj.traverse(node => {
-                console.log(node);
                 if (node.name.indexOf('Node') !== -1) {
                     node.material.color.set("#777");
                 }
