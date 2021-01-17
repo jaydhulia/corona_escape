@@ -21,7 +21,7 @@ AFRAME.registerComponent('openbook', {
         el.setAttribute('animation__mouseleave', "property: scale; to: 0.001 0.001 0.001; dur: 200; startEvents: mouseleave");
         
         // Default visibility to true, update to false object is discovered
-        el.setAttribute('visible', true);
+        el.setAttribute('visible', false);
         el.addEventListener('click', function () {
             var cbEl = document.querySelector('[closedbook]');
             cbEl.setAttribute('visible', true);
