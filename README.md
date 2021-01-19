@@ -1,6 +1,6 @@
 # Corona Escape
 
-Escape from Corona Virus in this interactive VR escape room experience!
+Escape from Corona Virus in this interactive VR escape room experience! Check it out [here](https://jaydhulia.com/corona_escape/) to play right from your browser! Can you find all the clues and escape on time?
 
 ## Members
 
